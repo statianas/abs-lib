@@ -156,7 +156,7 @@ class EvidenceManager:
 
         intervals = EvidenceManager.getSubIdealIntervalProbability(evidencePattern)
 
-        return LinearProgrammingProblemSolver.findOptimalConjunctsFormulaValuesIn(matrix, intervals, size, vectors) #хз что тут пока
+        return LinearProgrammingProblemSolver.findOptimalConjunctsFormulaValuesIn(matrix, intervals, size, vectors) 
 
     @staticmethod
     def getSubIdealProbability(evidencePattern):
@@ -239,7 +239,7 @@ class StochasticEvidenceCorrector(EvidenceCorrector):
             numerator = MatrixProducer.getTMatrix(array, int(math.log(size, 2)))
 
             ideal_ = LinearProgrammingProblemSolver.findOptimalStochasticEvidenceValues(I, intervals, size, numerator, divider)
-            if len(ideal_) == 0:
+            if len(ideal_._arr) == 0:
                 return EvidenceCorrectorResult(False, [])
             for j in range(size):
                 result[j][0] += round(vector_quants[i] * ideal_[j][0], 3)
